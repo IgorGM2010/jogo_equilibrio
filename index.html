@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Equilíbrio: A Saúde Mental na Vida de um Estudante</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="description" content="Um jogo sobre o equilíbrio da saúde mental na vida de um estudante." />
+    <meta name="theme-color" content="#2CA6A4" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    
+    <!-- iOS PWA -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Equilíbrio" />
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png" />
+    <link rel="apple-touch-icon" sizes="512x512" href="icons/icon-512x512.png" />
+    
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    
+    <!-- Prevent phone number detection -->
+    <meta name="format-detection" content="telephone=no" />
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              teal: {
+                DEFAULT: '#2CA6A4',
+                light: '#EAF6FA',
+              },
+              pink: {
+                DEFAULT: '#E6A6C7',
+              },
+              yellow: {
+                DEFAULT: '#FFD166',
+              },
+              softGray: {
+                DEFAULT: '#4A4A4A',
+              },
+              gold: {
+                DEFAULT: '#D4AF37',
+                light: '#F9F6E5',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* iOS safe area support */
+      :root {
+        --sat: env(safe-area-inset-top);
+        --sar: env(safe-area-inset-right);
+        --sab: env(safe-area-inset-bottom);
+        --sal: env(safe-area-inset-left);
+      }
+      body {
+        background-color: #FFFFFF;
+        color: #4A4A4A;
+        overscroll-behavior: none;
+        -webkit-overflow-scrolling: touch;
+        /* Prevent pull-to-refresh on mobile */
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+      }
+      #root {
+        width: 100%;
+        height: 100%;
+        padding-top: var(--sat);
+        padding-bottom: var(--sab);
+        padding-left: var(--sal);
+        padding-right: var(--sar);
+      }
+      /* Disable text selection on mobile for game feel */
+      * {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+      }
+    </style>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
